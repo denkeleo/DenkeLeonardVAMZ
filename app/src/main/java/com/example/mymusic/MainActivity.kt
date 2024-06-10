@@ -28,56 +28,9 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MyMusicTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-                    GreetingBackground("Hello!\nWelcome to MyMusic!")
-                }
+                MusicApp()
+
             }
         }
-    }
-}
-
-@Composable
-fun GreetingBackground(message: String, modifier: Modifier = Modifier) {
-    val image = painterResource(R.drawable.bec5e3f0_37cb_4420_afe9_fef27bde1148_upscaled)
-    Box {
-        Image(
-            painter = image,
-            contentDescription = null,
-            contentScale = ContentScale.Crop,
-            alpha = 0.9F
-        )
-        GreetingText (
-            message = message,
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(5.dp)
-        )
-    }
-}
-
-@Composable
-fun GreetingText(message: String, modifier: Modifier = Modifier) {
-    val image = painterResource(R.drawable.bec5e3f0_37cb_4420_afe9_fef27bde1148_upscaled)
-
-    Column {
-        var verticalArrangement = Arrangement.Center
-        Text(
-            text = "Hello $message!\nWelcome to MyMusic!",
-            fontSize = 20.sp,
-            lineHeight = 20.sp,
-            textAlign = TextAlign.Center,
-            modifier = modifier.padding(20.dp)
-
-        )
-
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    MyMusicTheme {
-        GreetingBackground("Hello!\nWelcome to MyMusic!")
     }
 }
